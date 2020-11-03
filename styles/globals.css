@@ -7,10 +7,14 @@ body {
 }
 
 a {
-  color: inherit;
+  color: #0f7864;
   text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.active {
+  color: #18BC9C !important;
 }
