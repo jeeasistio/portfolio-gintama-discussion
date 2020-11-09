@@ -73,7 +73,7 @@ export default function EpisodesDiscussion({ episodes, ovas, movies }) {
   )
 }
 
-export async function getServerSideProps({ req, res }) {
+export async function getStaticProps({ req, res }) {
   await handler.run(req, res);
   
   return {
