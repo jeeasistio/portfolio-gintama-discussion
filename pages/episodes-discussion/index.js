@@ -4,7 +4,6 @@ import Episodes from '../../components/episodes-discussion/Episodes'
 import episodes from '../../lib/episodes'
 import ovas from '../../lib/ovas'
 import movies from '../../lib/movies'
-import handler from '../../lib/handler'
 import { Container, Nav, Navbar, Image } from 'react-bootstrap'
 
 export default function EpisodesDiscussion({ episodes, ovas, movies }) {
@@ -74,8 +73,6 @@ export default function EpisodesDiscussion({ episodes, ovas, movies }) {
 }
 
 export async function getStaticProps({ req, res }) {
-  await handler.run(req, res);
-  
   return {
     props: JSON.parse(JSON.stringify({ episodes, ovas, movies }))
   }
