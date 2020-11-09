@@ -18,7 +18,7 @@ export default function GlobalThread({ posts }) {
   return (
     <div>
       <Head>
-        <title>Gintama Discussion</title>
+        <title>Global Thread</title>
       </Head>
       
       <HFLayout>
