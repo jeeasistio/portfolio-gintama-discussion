@@ -16,7 +16,7 @@ export default function Login() {
   const loginFunc = (data) => {
     setStatus({ status: 'loading', message: 'Logging In...' })
     axios.post('/api/auth/login', data)
-      .then(res => router.push('/global-thread'))
+      .then(res => router.push('/episodes-discussion))
       .catch(err => setStatus({ status: 'error', message: err.response.data.msg }))
   }
   
