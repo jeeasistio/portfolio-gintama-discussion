@@ -25,12 +25,12 @@ export default function HLayout({ children }) {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="ml-auto" activeKey={router.pathname}>
-            <Nav.Link href="/global-thread">
-              Global Thread
-            </Nav.Link>
             <Nav.Link href="/episodes-discussion">
               Episodes Discussion
             </Nav.Link>
+            <Nav.Link href="/global-thread">
+              Global Thread
+            </Nav.Link> 
             <NavDropdown title="Account" alignRight>
               {!isLoggedIn && 
                 <>
