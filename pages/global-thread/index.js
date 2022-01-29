@@ -36,7 +36,7 @@ export default function GlobalThread({ posts }) {
   )
 }
 
-export async function getServerSideProps({ req, res }) {
+export async function getServerSideProps({req, res}) {
   await handler.run(req, res);
   const posts = await getDetailedPosts();
   

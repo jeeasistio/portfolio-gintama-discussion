@@ -1,12 +1,12 @@
 import handler from '../../../../lib/handler'
 import User from '../../../../models/user'
-import { addPostComment } from '../../../../lib/addComment'
+import { addEpisodeComment } from '../../../../lib/addComment'
 
 export default handler.post(async (req, res) => {
   const { content, postId } = req.body
   const userId = req.user
 
-  const newComment = await addPostComment(userId, postId, content)
+  const newComment = await addEpisodeComment(userId, postId, content)
 
   newComment.save((err, comment) => {
     if (err) return res.status(400).json(err)

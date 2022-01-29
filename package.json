@@ -15,7 +15,7 @@
     "mongoose": "^5.10.10",
     "mongoose-bcrypt": "^1.9.0",
     "mongoose-unique-validator": "^2.0.3",
-    "next": "9.5.5",
+    "next": "^10.2.3",
     "next-connect": "^0.9.1",
     "nookies": "^2.4.1",
     "react": "17.0.1",

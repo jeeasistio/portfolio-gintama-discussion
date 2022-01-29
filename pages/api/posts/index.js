@@ -1,8 +1,7 @@
 import handler from '../../../lib/handler'
-import { getDetailedPosts } from '../../../lib/getDetailed'
+import { getGlobalPosts } from '../../../lib/getPosts'
 
-export default handler
-.get( async (req, res) => {
-  const detailedPosts = await getDetailedPosts();
-  res.json(detailedPosts);
+export default handler.get(async (req, res) => {
+  const posts = await getGlobalPosts()
+  res.json(posts)
 })

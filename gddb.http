@@ -1,0 +1,31 @@
+GET  http://localhost:3000/api/posts
+
+###
+
+POST http://localhost:3000/api/user/posts
+content-type: application/json
+
+{
+  "subject": "I love Gintama",
+  "content": "Gintama is the best."
+}
+
+###
+
+POST http://localhost:3000/api/user/posts/add-comment
+content-type: application/json
+
+{
+  "content": "Yeah",
+  "postId": "61f5a0ebf6a31e10c0173944"
+}
+
+###
+
+POST http://localhost:3000/api/user/episodes/add-comment
+content-type: application/json
+
+{
+  "content": "Nice",
+  "episodeId": "61f5a9a494d57dd6b1bfb696"
+}

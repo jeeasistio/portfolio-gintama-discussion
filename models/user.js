@@ -1,22 +1,11 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
-const uniqueValidator = require('mongoose-unique-validator');
-const bcryptM = require('mongoose-bcrypt');
+import { Schema, models, model } from 'mongoose'
+import uniqueValidator from 'mongoose-unique-validator'
+import bcryptM from 'mongoose-bcrypt'
 
-const commentSchema = new Schema({
+export const postSchema = new Schema({
   user: {
-    type: String,
-    required: [true, 'Please enter a user']
-  },
-  content: {
-    type: String,
-    required: [true, 'Please enter some content']
-  }
-})
-
-const postSchema = new Schema({
-  user: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'User',
     required: [true, 'Please enter a user']
   },
   subject: {
@@ -28,10 +17,9 @@ const postSchema = new Schema({
     required: [true, 'Please add some content']
   },
   date_posted: {
-    type: Date, 
+    type: Date,
     default: Date.now()
-  }, 
-  comments: [commentSchema]
+  }
 })
 
 const userSchema = new Schema({
@@ -51,11 +39,10 @@ const userSchema = new Schema({
     required: [true, 'Please enter a password'],
     minlength: [6, 'Password too short'],
     maxLength: [20, 'Password too long']
-  },
-  posts: [postSchema]
+  }
 })
 
 userSchema.plugin(bcryptM);
 userSchema.plugin(uniqueValidator, { message: '{VALUE} already exists'} );
 
-module.exports = mongoose.models.User || mongoose.model('User', userSchema);
+export default models.User || model('User', userSchema);

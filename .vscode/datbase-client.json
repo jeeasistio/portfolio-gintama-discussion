@@ -1,0 +1,84 @@
+{
+    "nosql.connections": {
+        "1643485974913": {
+            "host": "cluster0.et8sn.mongodb.net",
+            "dbPath": "",
+            "port": 27017,
+            "user": "jeeasistio",
+            "authType": "default",
+            "password": "jeeasistio",
+            "encoding": "utf8",
+            "clientKeyPath": null,
+            "clientCertPath": null,
+            "caPath": null,
+            "database": null,
+            "useSSL": false,
+            "usingSSH": false,
+            "showHidden": false,
+            "includeDatabases": null,
+            "dbType": "MongoDB",
+            "encrypt": true,
+            "isCluster": false,
+            "connectionUrl": "mongodb+srv://jeeasistio:jeeasistio@cluster0.et8sn.mongodb.net/gddb?retryWrites=true&w=majority",
+            "srv": true,
+            "esAuth": "none",
+            "global": false,
+            "key": "1643485974913",
+            "timezone": "+00:00",
+            "ssh": {
+                "host": "",
+                "privateKeyPath": "C:\\Users\\User\\.ssh\\id_rsa",
+                "port": 22,
+                "username": "root",
+                "type": "password",
+                "connectTimeout": 10000,
+                "algorithms": {
+                    "cipher": []
+                }
+            },
+            "name": "gddb",
+            "useConnectionString": true,
+            "connectionKey": "nosql.connections"
+        },
+        "1643486007319": {
+            "host": "cluster0.et8sn.mongodb.net",
+            "dbPath": "",
+            "port": 27017,
+            "user": "jeeasistio",
+            "authType": "default",
+            "password": "jeeasistio",
+            "encoding": "utf8",
+            "clientKeyPath": null,
+            "clientCertPath": null,
+            "caPath": null,
+            "database": null,
+            "useSSL": false,
+            "usingSSH": false,
+            "showHidden": false,
+            "includeDatabases": null,
+            "dbType": "MongoDB",
+            "encrypt": true,
+            "isCluster": false,
+            "connectionUrl": "mongodb+srv://jeeasistio:jeeasistio@cluster0.et8sn.mongodb.net/gddb?retryWrites=true&w=majority",
+            "srv": true,
+            "esAuth": "none",
+            "global": false,
+            "key": "1643486007319",
+            "timezone": "+00:00",
+            "ssh": {
+                "host": "",
+                "privateKeyPath": "C:\\Users\\User\\.ssh\\id_rsa",
+                "port": 22,
+                "username": "root",
+                "type": "password",
+                "connectTimeout": 10000,
+                "algorithms": {
+                    "cipher": []
+                }
+            },
+            "name": "gddb",
+            "useConnectionString": true,
+            "connectionKey": "nosql.connections"
+        }
+    }
+}
