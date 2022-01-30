@@ -7,16 +7,20 @@ import PleaseLogin from '../../components/PleaseLogin'
 import Comments from '../../components/global-thread/Comments'
 import AddComment from '../../components/global-thread/AddComment'
 import PostDetails from '../../components/global-thread/PostDetails'
-import { getDetailedPost } from '../../lib/getDetailed'
 import handler from '../../lib/handler'
+import { getPost } from '../../lib/getPosts'
+import { getPostComments } from '../../lib/getComments'
 import { Container } from 'react-bootstrap'
 import useSWR from 'swr'
+import fetcher from '../../lib/fetcher'
 
-export default function Post({ post }) {
+export default function Post({ post, comments }) {
   
   const router = useRouter();
-  const { data, error, mutate } = useSWR(`/api/posts/${post.id}`, null, { initialData: post })
+  const { data, error, mutate } = useSWR(`/api/posts/comments/${router.query.id}`, fetcher, { fallbackData: comments })
   const { isLoggedIn } = useContext(UserContext);
+
+  console.log(comments);
   
   return (
     <div>
@@ -26,13 +30,13 @@ export default function Post({ post }) {
       
       <HFLayout>
         <Container fluid="md">
-          <PostDetails post={data} />
-          <Comments comments={data.comments} />
+          <PostDetails post={post} />
+          <Comments comments={data} />
           {!isLoggedIn && <PleaseLogin permission="comment" />} 
           {isLoggedIn && <AddComment 
             postId={router.query.id} 
             mutate={mutate}
-            post={data} />
+            comments={data} />
           } 
         </Container>
       </HFLayout>
@@ -42,9 +46,11 @@ export default function Post({ post }) {
 
 export async function getServerSideProps({ params, req, res }) {
   await handler.run(req, res)
-  const post = await getDetailedPost(params.id);
+
+  const comments = await getPostComments(params.id)
+  const post = await getPost(params.id);
   
   return {
-    props: JSON.parse(JSON.stringify({ post }))
+    props: JSON.parse(JSON.stringify({ post, comments }))
   }
 }

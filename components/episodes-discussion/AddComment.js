@@ -3,18 +3,18 @@ import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 
-const AddComment = ({ episodeId, mutate }) => {
+const AddComment = ({ episodeId, mutate, comments }) => {
   const { register, handleSubmit, errors, reset } = useForm()
   const [commenting, setCommenting] = useState(false)
 
   const commentFunc = async (data) => {
     setCommenting(true)
 
-    await axios.post(`/api/user/episodes/${episodeId}`, data)
+    const res = await axios.post(`/api/user/episodes/${episodeId}`, data)
 
     setCommenting(false)
     reset()
-    mutate()
+    mutate([...comments, { ...res.data }])
   }
 
   return (

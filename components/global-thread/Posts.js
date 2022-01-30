@@ -14,7 +14,7 @@ const Posts = ({ posts }) => {
             <Card.Body>
               <Card.Title>{post.subject}</Card.Title>
               <Card.Subtitle className="mb-3">
-                <Link href={`/user/visit/${post.user.userId}`}>
+                <Link href={`/user/visit/${post.user._id}`}>
                   <a className="font-weight-light text-muted">{post.user.username}</a>
                 </Link>
               </Card.Subtitle>

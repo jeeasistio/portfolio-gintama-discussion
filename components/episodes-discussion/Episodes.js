@@ -1,5 +1,6 @@
 import { Col, Row, Card, Image, Button } from 'react-bootstrap'
 import TextClamp from 'react-string-clamp'
+import moment from 'moment'
 
 const Episodes = ({ items }) => {
   return items.episodes.map((item, index) => (
@@ -21,8 +22,8 @@ const Episodes = ({ items }) => {
             <small className="text-muted mb-3 d-block">{item.jp_title}</small>
             <TextClamp className="px-2" text={item.content} lines={3} />
             <div className="d-flex justify-content-between align-items-center mt-4">
-              <small className="text-muted">{item.date_aired}</small>
-              <Button href={`/episodes-discussion/${item.id}`}>
+              <small className="text-muted">{moment(item.date_aired).format('MMM DD[,] YYYY')}</small>
+              <Button href={`/episodes-discussion/${item._id}`}>
                 Read more
               </Button>
             </div>

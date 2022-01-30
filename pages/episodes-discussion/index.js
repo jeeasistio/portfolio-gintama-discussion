@@ -3,6 +3,7 @@ import HFLayout from '../../components/HFLayout'
 import Episodes from '../../components/episodes-discussion/Episodes'
 import { Container, Nav, Navbar, Image } from 'react-bootstrap'
 import { getEpisodes } from '../../lib/getEpisodes'
+import handler from '../../lib/handler'
 
 export default function EpisodesDiscussion({ episodes, ovas, movies }) {
   return (
@@ -99,7 +100,8 @@ export default function EpisodesDiscussion({ episodes, ovas, movies }) {
   )
 }
 
-export async function getStaticProps({ req, res }) {
+export async function getServerSideProps({ req, res }) {
+  handler.run(req, res)
   const [episodes, movies, ovas] = await getEpisodes()
 
   return {

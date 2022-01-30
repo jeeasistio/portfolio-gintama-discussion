@@ -6,9 +6,7 @@ import '../styles/globals.css'
 function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
-      <SWRConfig value={{
-        fetcher: (...args) => axios.get(...args).then(res => res.data)
-      }}>
+      <SWRConfig value={{ fetcher: (url) => axios.get(url).then(res => res.data)}}>
         <Component {...pageProps} />
       </SWRConfig>
     </UserProvider>

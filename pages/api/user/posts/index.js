@@ -16,6 +16,6 @@ export default handler
   newPost.save((err, post) => {
     if (err) return res.status(400).json(err)
     
-    res.status(200).json(post)
+    res.json(post)
   })
 })

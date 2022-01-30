@@ -9,19 +9,18 @@ import Comments from '../../components/global-thread/Comments'
 import AddComment from '../../components/episodes-discussion/AddComment'
 import handler from '../../lib/handler'
 import { getEpisodeComments } from '../../lib/getComments'
-import {
-  getAllEpisodeIds,
-  getEpisode,
-  getEpisodes
-} from '../../lib/getEpisodes'
+import { getEpisode } from '../../lib/getEpisodes'
 import { Container } from 'react-bootstrap'
 import useSWR from 'swr'
+import fetcher from '../../lib/fetcher'
 
 export default function Episode({ episode, comments }) {
   const router = useRouter()
   const { isLoggedIn } = useContext(UserContext)
   const { data, error, mutate } = useSWR(
-    `/api/episodes/comments/${router.query.id}`
+    `/api/episodes/comments/${router.query.id}`,
+    fetcher,
+    { fallbackData: comments }
   )
 
   return (
@@ -35,20 +34,14 @@ export default function Episode({ episode, comments }) {
           <EpisodeDetails episode={episode} />
           <Comments comments={data} />
           {!isLoggedIn && <PleaseLogin permission="comment" />}
-          {isLoggedIn && (
-            <AddComment
-              episodeId={router.query.id}
-              mutate={mutate}
-              comments={data}
-            />
-          )}
+          {isLoggedIn && <AddComment episodeId={router.query.id} mutate={mutate} comments={data} />}
         </Container>
       </HFLayout>
     </div>
   )
 }
 
-export async function getStaticProps({ params, req, res }) {
+export async function getServerSideProps({ params, req, res }) {
   handler.run(req, res)
 
   const comments = await getEpisodeComments(params.id)
@@ -56,13 +49,5 @@ export async function getStaticProps({ params, req, res }) {
 
   return {
     props: JSON.parse(JSON.stringify({ episode, comments }))
-  }
-}
-
-export async function getStaticPaths() {
-  const episodeIds = await getAllEpisodeIds()
-
-  return {
-    paths: episodeIds.map((id) => ({ params: { id } }))
   }
 }

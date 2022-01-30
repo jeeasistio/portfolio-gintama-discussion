@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { UserContext } from '../../../lib/UserContext'
 import HFLayout from '../../../components/HFLayout'
 import Posts from '../../../components/global-thread/Posts'
-import { getUserAndPosts } from '../../../lib/getDetailed'
+import { getUserAndPosts } from '../../../lib/getPosts'
 import handler from '../../../lib/handler'
 import { Container } from 'react-bootstrap'
 
