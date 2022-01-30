@@ -1,4 +1,3 @@
-import { SchemaType } from 'mongoose'
 import { Schema, models, model } from 'mongoose'
 
 const episodeSchema = new Schema({

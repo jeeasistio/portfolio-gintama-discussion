@@ -2,6 +2,10 @@ GET  http://localhost:3000/api/posts
 
 ###
 
+GET  http://localhost:3000/api/episodes
+
+###
+
 POST http://localhost:3000/api/user/posts
 content-type: application/json
 
