@@ -1,4 +1,5 @@
 import { Jumbotron, Image } from 'react-bootstrap'
+import moment from 'moment'
 
 const EpisodeDetails = ({ episode }) => {
   return (
@@ -8,7 +9,7 @@ const EpisodeDetails = ({ episode }) => {
       <Image src={episode.image} rounded className="d-block mx-auto my-2 mw-100" />
       <p className="px-2 py-3">{episode.content}</p>
       <small className="text-muted">
-        <time>Date aired: {episode.aired_date}</time>
+        <time>Date aired: {moment(episode.date_aired).format('MMM DD[,] YYYY')}</time>
       </small>
     </Jumbotron>
   )

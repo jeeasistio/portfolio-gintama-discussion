@@ -16,7 +16,7 @@ export default function EpisodesDiscussion({ episodes, ovas, movies }) {
         <Container fluid="md">
           <div className="my-4">
             <h2>Episodes Discussion</h2>
-            <h6>Discuss your favorite episodes</h6>
+            <h5 className="text-muted">Discuss your favorite episodes</h5>
           </div>
           <Image
             style={{ width: 300 }}

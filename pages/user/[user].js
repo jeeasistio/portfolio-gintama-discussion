@@ -8,6 +8,7 @@ import { getUserPosts } from '../../lib/getPosts'
 import handler from '../../lib/handler'
 import { Container } from 'react-bootstrap'
 import useSWR from 'swr'
+import ErrorMsg from '../../components/ErrorMsg'
 
 export default function User({ posts }) {
   const { data, error, mutate } = useSWR('/api/user/posts', null, {
@@ -28,6 +29,7 @@ export default function User({ posts }) {
           </div>
           <AddPost mutate={mutate} posts={data} />
           <h5 className="text-center mt-5">Timeline Posts</h5>
+          {!posts.length && <ErrorMsg size="large" message="No posts" />}
           <Posts posts={data} />
         </Container>
       </HFLayout>

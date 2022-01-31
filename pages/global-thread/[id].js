@@ -19,8 +19,6 @@ export default function Post({ post, comments }) {
   const router = useRouter();
   const { data, error, mutate } = useSWR(`/api/posts/comments/${router.query.id}`, fetcher, { fallbackData: comments })
   const { isLoggedIn } = useContext(UserContext);
-
-  console.log(comments);
   
   return (
     <div>

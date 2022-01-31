@@ -27,10 +27,9 @@ export default function Register() {
       </Head>
       
       <HFLayout>
-        <Container 
-          style={{ minHeight: '75vh' }} 
-          className="d-flex flex-column justify-content-center my-4" 
-          fluid="md"
+        <div
+          style={{ minHeight: '75vh', maxWidth: '500px' }} 
+          className="d-flex flex-column justify-content-center m-auto p-4"
         >
           <h2>Register</h2>
         
@@ -138,7 +137,7 @@ export default function Register() {
               </Link>
             </p>
           </Form>
-        </Container>
+        </div>
       </HFLayout>
     </div>
   )
