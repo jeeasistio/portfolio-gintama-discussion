@@ -15,8 +15,8 @@ export default function EpisodesDiscussion({ episodes, ovas, movies }) {
       <HFLayout>
         <Container fluid="md">
           <div className="my-4">
-            <h2>Episodes Discussion</h2>
-            <h5 className="text-muted">Discuss your favorite episodes</h5>
+            <h1>Episodes Discussion</h1>
+            <h4 className="text-muted">Discuss your favorite episodes</h4>
           </div>
           <Image
             style={{ width: 300 }}

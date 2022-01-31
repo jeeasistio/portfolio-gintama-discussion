@@ -26,8 +26,8 @@ export default function GlobalThread({ posts }) {
       <HFLayout>
         <Container fluid="md">
           <div className="my-4">
-            <h2>Global Thread</h2>
-            <h6>Discuss anything you want about gintama</h6>
+            <h1>Global Thread</h1>
+            <h4 className="text-muted">Discuss anything you want about gintama</h4>
           </div>
           {isLoggedIn && <AddPost mutate={mutate} posts={data} />}
           <Posts posts={data} />
