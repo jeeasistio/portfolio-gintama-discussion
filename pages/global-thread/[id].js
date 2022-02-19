@@ -23,7 +23,7 @@ export default function Post({ post, comments }) {
   return (
     <div>
       <Head>
-        <title>{data.subject}</title>
+        <title>{post.subject}</title>
       </Head>
       
       <HFLayout>
