@@ -23,7 +23,7 @@ export default handler
             maxAge: 30 * 24 * 60 * 60,
             path: '/',
             secure: process.env.NODE_ENV !== 'development',
-            sameSite: 'strict'
+            httpOnly: true,
           })
           nookies.set({ res }, 'loggedInUser', user.username, {
             maxAge: 30 * 24 * 60 * 60,

@@ -5,5 +5,5 @@ export default handler
 .post((req, res) => {
   nookies.destroy({ res }, 'auth-token', { path: '/' })
   nookies.destroy({ res }, 'loggedInUser', { path: '/' })
-  res.json({ msg: 'Logged Out '})
+  res.status(200).json({ msg: 'Logged Out '})
 })
