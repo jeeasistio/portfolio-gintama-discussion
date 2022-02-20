@@ -11,7 +11,7 @@ export default function HLayout({ children }) {
   const { isLoggedIn, loggedInUser, logout } = useContext(UserContext);
   
   const logoutFunc =  async () => {
-    await axios.get('/api/auth/logout-user')
+    await axios.delete('/api/auth/logout-user')
 
     router.push('/global-thread')
     logout()
