@@ -12,14 +12,16 @@ export default function Login() {
   const { register, handleSubmit, errors, watch } = useForm()
   const [status, setStatus] = useState({})
 
-  const loginFunc = (data) => {
+  const loginFunc = async (data) => {
     setStatus({ status: 'loading', message: 'Logging In...' })
-    axios
-      .post('/api/auth/login', data)
-      .then((res) => router.push('/episodes-discussion'))
-      .catch((err) =>
-        setStatus({ status: 'error', message: err.response.data.msg })
-      )
+
+    try {      
+      const res = await axios.post('/api/auth/login', data)
+      router.push('/episodes-discussion')
+    } catch (err) {      
+      setStatus({ status: 'error', message: err.response.data.msg })
+    }
+      
   }
 
   return (
