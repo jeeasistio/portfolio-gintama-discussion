@@ -17,7 +17,7 @@ import fetcher from '../../lib/fetcher'
 export default function Post({ post, comments }) {
   
   const router = useRouter();
-  const { data, error, mutate } = useSWR(`/api/posts/comments/${router.query.id}`, fetcher, { fallbackData: comments })
+  const { data, error, mutate } = useSWR(`/api/posts/${router.query.id}`, fetcher, { fallbackData: comments })
   const { isLoggedIn } = useContext(UserContext);
   
   return (

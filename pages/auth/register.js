@@ -15,7 +15,7 @@ export default function Register() {
   
   const registerFunc = (data) => {
     setStatus({ status: 'loading', message: 'Processing...' })
-    axios.post('/api/auth/register', data)
+    axios.post('/api/auth/register-user', data)
       .then(res => setStatus({ status: 'success', message: res.data.msg }))
       .catch(err => setStatus({ status: 'error', message: err.response.data.msg }))
   }
