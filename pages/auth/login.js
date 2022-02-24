@@ -16,7 +16,7 @@ export default function Login() {
     setStatus({ status: 'loading', message: 'Logging In...' })
 
     try {      
-      const res = await axios.post('/api/auth/login', data)
+      const res = await axios.post('/api/auth/login-user', data)
       router.push('/episodes-discussion')
     } catch (err) {      
       setStatus({ status: 'error', message: err.response.data.msg })
