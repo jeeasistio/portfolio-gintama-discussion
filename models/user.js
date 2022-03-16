@@ -1,10 +1,10 @@
-import { Schema, models, model } from 'mongoose'
+import mongoose from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
 import bcryptM from 'mongoose-bcrypt'
 
-export const postSchema = new Schema({
+export const postSchema = new mongoose.Schema({
   user: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: [true, 'Please enter a user']
   },
@@ -22,7 +22,7 @@ export const postSchema = new Schema({
   }
 })
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: [true, 'Please enter a username'],
@@ -42,7 +42,9 @@ const userSchema = new Schema({
   }
 })
 
-userSchema.plugin(bcryptM);
-userSchema.plugin(uniqueValidator, { message: '{VALUE} already exists'} );
+userSchema.plugin(bcryptM)
+userSchema.plugin(uniqueValidator, { message: '{VALUE} already exists' })
 
-export default models.User || model('User', userSchema);
+const userModel = mongoose.models.User || mongoose.model('User', userSchema)
+
+export default userModel

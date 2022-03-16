@@ -1,18 +1,18 @@
-import { Schema, models, model } from 'mongoose'
+import mongoose from 'mongoose'
 
-const commentSchema = new Schema({
+const commentSchema = new mongoose.Schema({
   user: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: [true, 'Please enter a user']
   },
   post: {
-    type: Schema.Types.ObjectId,
-    ref: 'Post',
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Post'
   },
   episode: {
-    type: Schema.Types.ObjectId,
-    ref: 'Episode',
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Episode'
   },
   content: {
     type: String,
@@ -21,7 +21,10 @@ const commentSchema = new Schema({
   date_commented: {
     type: Date,
     default: Date.now()
-  },
+  }
 })
 
-export default models.Comment || model('Comment', commentSchema)
+const commentModel =
+  mongoose.models.Comment || mongoose.model('Comment', commentSchema)
+
+export default commentModel

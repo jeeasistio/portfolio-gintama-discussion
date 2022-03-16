@@ -1,6 +1,6 @@
-import { Schema, models, model } from 'mongoose'
+import mongoose from 'mongoose'
 
-const episodeSchema = new Schema({
+const episodeSchema = new mongoose.Schema({
   number: {
     type: Number,
     required: [true, 'Please enter a number']
@@ -31,4 +31,7 @@ const episodeSchema = new Schema({
   }
 })
 
-export default models.Episode || model('Episode', episodeSchema)
+const episodeModel =
+  mongoose.models.Episode || mongoose.model('Episode', episodeSchema)
+
+export default episodeModel
