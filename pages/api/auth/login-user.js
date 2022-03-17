@@ -21,13 +21,11 @@ export default handler
           
           nookies.set({ res }, 'auth-token', token, {
             maxAge: 30 * 24 * 60 * 60,
-            path: '/',
-            secure: process.env.NODE_ENV !== 'development',
-            httpOnly: true,
+            path: '/'
           })
           nookies.set({ res }, 'loggedInUser', user.username, {
             maxAge: 30 * 24 * 60 * 60,
-            path: '/',
+            path: '/'
           })
           return res.json({ 
             msg: 'Login Successful', 
